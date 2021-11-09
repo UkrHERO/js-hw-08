@@ -6,6 +6,9 @@ form.addEventListener('input', throttle(onFormInput, 500));
 const submitBtn = document.querySelector('[type="submit"]');
 submitBtn.addEventListener('click', onFormSubmit);
 
+const emailInput = document.querySelector('[name="email"]');
+const nameInput = document.querySelector('[name="message"]');
+
 localTextarea();
 
 const formData = {};
@@ -26,7 +29,7 @@ function localTextarea() {
   const savedInput = localStorage.getItem('feedback-form-state');
   const readyInput = JSON.parse(savedInput);
   if (readyInput) {
-    document.querySelector('[name="email"]').value = readyInput.email;
-    document.querySelector('[name="message"]').value = readyInput.message;
+    emailInput.value = readyInput.email;
+    nameInput.value = readyInput.message;
   }
 }
